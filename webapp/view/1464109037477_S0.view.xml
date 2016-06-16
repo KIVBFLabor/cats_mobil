@@ -1,0 +1,89 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="generated.app.controller.1464109037477_S0"
+	xmlns:m="sap.m" xmlns:unified="sap.ui.unified" xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<m:Page id="sap_Responsive_Page_0" showHeader="true" title="CATS mobil"
+		showFooter="true" showNavButton="false">
+		<m:content>
+			<unified:CalendarDateInterval
+				id="sap_Responsive_Page_0-content-sap_ui_unified_CalendarDateInterval-1464109064169"
+				days="7" intervalSelection="false" visible="true" width="100%"
+				singleSelection="true" select="handleCalendarSelect">
+				<unified:selectedDates />
+				<unified:specialDates />
+			</unified:CalendarDateInterval>
+
+			<form:SimpleForm
+				minWidth="-1" maxContainerCols="2" layout="ResponsiveGridLayout"
+				editable="true" visible="true">
+				<form:content>
+					<m:Label
+						id="lbl_dauer" text="Dauer" design="Standard" width="auto" required="false"
+						textAlign="Begin" textDirection="Inherit" />
+					<m:Input
+						id="ipt_dauer" type="Text" showValueHelp="false" enabled="true" visible="true"
+						width="auto" valueHelpOnly="false" maxLength="0" value="{/d/Stunden}" />
+
+					<!-- Senderkostenstelle -->
+					<m:Label id="lbl_senderkostenstelle" text="Senderkostenstelle"
+						design="Standard" width="auto" required="false" textAlign="Begin"
+						textDirection="Inherit" />
+					<m:Input id="ipt_senderkostenstelle" type="Text"
+						showValueHelp="true" enabled="true" visible="true" width="auto"
+						valueHelpOnly="false" maxLength="0" value="{/d/Kostenstelle}" 
+						valueHelpRequest="_onValueHelpRequestSapResponsivePage0contentsapuilayoutformSimpleForm1464109506773contentsapmInput1464109536527" />
+
+					<m:Label
+						id="lbl_auftragsnummer" text="Auftragsnummer" design="Standard" width="auto" required="false"
+						textAlign="Begin" textDirection="Inherit" />
+					<m:Input
+						id="ipt_auftragsnummer" value="{/d/Eauftrnr}" type="Text" showValueHelp="true" enabled="true"
+						visible="true" width="auto" valueHelpOnly="false" maxLength="0" />
+					<m:Text
+						id="txt_auftrasnummer" text="Urlaub" width="auto" maxLines="1" wrapping="false"
+						textAlign="Begin" textDirection="Inherit" />
+					<m:Label
+						id="lbl_leistungsart" text="Leistungsart" design="Standard" width="auto" required="false"
+						textAlign="Begin" textDirection="Inherit" />
+					<m:Input
+						id="ipt_leistungsart" type="Text" showValueHelp="true" enabled="true" visible="true" width="auto"
+						valueHelpOnly="false" maxLength="0" value="{/d/Lsart}" />
+					<m:Text
+						id="txt_leistungsart" text="Leistung" width="auto" maxLines="1" wrapping="false"
+						textAlign="Begin" textDirection="Inherit" />
+					<m:Label
+						id="sap_Responsive_Page_0-content-sap_ui_layout_form_SimpleForm-1464109506773-content-sap_m_Label-1464109591287"
+						text="Label" design="Standard" width="auto" required="false"
+						textAlign="Begin" textDirection="Inherit" />
+					<m:Label
+						id="sap_Responsive_Page_0-content-sap_ui_layout_form_SimpleForm-1464109506773-content-sap_m_Label-1464109594627"
+						text="Label" design="Standard" width="auto" required="false"
+						textAlign="Begin" textDirection="Inherit" />
+				</form:content>
+				<form:title>
+					<core:Title
+						id="sap_Responsive_Page_0-content-sap_ui_layout_form_SimpleForm-1464109506773-title-sap_ui_core_Title-1"
+						text="Daten" level="Auto" />
+				</form:title>
+			</form:SimpleForm>
+			<m:Bar id="sap_Responsive_Page_0-footer-sap_m_Bar-1" design="Auto">
+				<m:contentLeft />
+				<m:contentMiddle />
+				<m:contentRight>
+					<m:Button
+						id="sap_Responsive_Page_0-footer-sap_m_Bar-1-contentRight-sap_m_Button-1"
+						iconDensityAware="false" text="Beantragen" type="Accept"
+						iconFirst="true" width="auto" enabled="true" visible="true"
+						press="_onPressSapResponsivePage0footersapmBar1contentRightsapmButton1" />
+					<m:Button
+						id="sap_Responsive_Page_0-footer-sap_m_Bar-1-contentRight-sap_m_Button-2"
+						iconDensityAware="false" text="Abbruch" type="Reject" iconFirst="true"
+						width="auto" enabled="true" visible="true" />
+				</m:contentRight>
+			</m:Bar>
+		</m:content>
+		<m:footer />
+		<m:headerContent />
+		<m:subHeader />
+		<m:customHeader />
+	</m:Page>
+</mvc:View>

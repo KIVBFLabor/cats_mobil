@@ -1,0 +1,128 @@
+{
+	"_version": "1.1.0",
+	"start_url": "webapp/index.html",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "generate.app",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"main": {
+				"uri": "/sap/opu/odata/sap/Z_CATS_API_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"ach": "ach",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "generated.app.view1464109037477_S0",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.32.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+		
+			"": {
+				"dataSource": "main",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"loadMetadataAsync": false,
+					"json": true,
+					"bJSON": true,
+					"defaultBindingMode": "TwoWay",
+					"useBatch": true,
+					"refreshAfterChange": false
+				}
+			}
+		},
+		"resources": {
+			"css": []
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "generated.app.view",
+				"controlId": "App",
+				"clearTarget": false,
+				"controlAggregation": "pages",
+				"bypassedPage": {
+					"target": [
+						"1464109037477_S0"
+					]
+				}
+			},
+			"routes": [{
+				"pattern": "1464109037477_S0/:context:",
+				"name": "1464109037477_S0",
+				"target": [
+					"1464109037477_S0"
+				]
+			}, {
+				"pattern": "",
+				"name": "default",
+				"target": [
+					"1464109037477_S0"
+				]
+			}],
+			"targets": {
+				"1464109037477_S0": {
+					"controlAggregation": "pages",
+					"viewName": "1464109037477_S0",
+					"viewId": "1464109037477_S0",
+					"viewLevel": 1
+				}
+			}
+		}
+	}
+}
