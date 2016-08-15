@@ -30,7 +30,7 @@
 					<m:Input id="ipt_senderkostenstelle" type="Text"
 						showValueHelp="true" enabled="true" visible="true" width="auto"
 						valueHelpOnly="false" maxLength="0" value="{/d/Kostenstelle}" 
-						valueHelpRequest="_onValueHelpRequestSapResponsivePage0contentsapuilayoutformSimpleForm1464109506773contentsapmInput1464109536527" />
+						valueHelpRequest="_onValueHelpRequest_kostenstelle" />
 
 					<m:Label
 						id="lbl_auftragsnummer" text="Auftragsnummer" design="Standard" width="auto" required="false"
