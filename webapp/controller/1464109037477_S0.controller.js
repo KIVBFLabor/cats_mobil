@@ -74,6 +74,35 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 			    },function(oData, oResponse){
 			    	alert("Eintrag konnte nicht angelegt werden!");
 			})
+		},
+		
+		_onValueHelpRequest_kostenstelle: function(oEvent) {
+			var dialogName = "d_kostenstelle";
+			this.dialogs = this.dialogs || {};
+			var dialog = this.dialogs[dialogName];
+			var source = oEvent.getSource();
+			var bindingContext = source.getBindingContext();
+			var path = (bindingContext) ? bindingContext.getPath() : null;
+			var model = (bindingContext) ? bindingContext.getModel() : this.getView().getModel();
+			var view;
+			if (!dialog) {
+				view = sap.ui.xmlview({
+					viewName: "generated.app.view." + dialogName
+				});
+				view._sOwnerId = this.getView()._sOwnerId;
+				dialog = view.getContent()[0];
+				this.dialogs[dialogName] = dialog;
+			}
+			dialog.open();
+			if (view) {
+				dialog.attachAfterOpen(function() {
+					dialog.rerender();
+				});
+			} else {
+				view = dialog.getParent();
+			}
+			//view.setModel(model);
+			//view.bindElement(path, {});
 		}
 	});
 }, /* bExport= */ true);

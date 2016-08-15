@@ -1,0 +1,31 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="generated.app.controller.d_kostenstelle" xmlns:m="sap.m">
+	<m:Dialog id="sap_m_Dialog_0" horizontalScrolling="true" showHeader="true" state="None" stretch="false" type="Standard"
+		verticalScrolling="true">
+		<m:content>
+			<m:List id="sap_m_Dialog_0-content-sap_m_List-1464849416547" mode="SingleSelectMaster" width="100%" headerText="Header" footerText=""
+				backgroundDesign="Solid" showSeparators="All" growing="false" growingThreshold="20" growingScrollToLoad="false" items="{/d/results}"
+				selectionChange="_onSelectionChangeSapmDialog0contentsapmList1464849416547">
+				<m:items>
+					<m:StandardListItem id="sap_m_Dialog_0-content-sap_m_List-1464849416547-items-sap_m_StandardListItem-1464849462422" title="{KOSTL}"
+						description="{MCTXT}" info="" infoState="None" type="Active" selected="false"/>
+				</m:items>
+				<m:headerToolbar>
+					<m:Toolbar id="sap_m_Dialog_0-content-sap_m_List-1464849416547-headerToolbar-sap_m_Toolbar2-1" visible="true" enabled="true" width=""
+						design="Solid">
+						<m:content>
+							<m:SearchField id="sap_m_Dialog_0-content-sap_m_List-1464849416547-headerToolbar-sap_m_Toolbar2-1-content-sap_m_SearchField-1"
+								placeholder="Search" showSearchButton="true" visible="true" width="100%"/>
+						</m:content>
+					</m:Toolbar>
+				</m:headerToolbar>
+			</m:List>
+			<m:Button id="sap_m_Dialog_0-content-sap_m_Button-1464849746658" iconDensityAware="false" text="Abbrechen" type="Default" iconFirst="true"
+				width="auto" enabled="true" visible="true" press="_onPressSapmDialog0contentsapmButton1464849746658"/>
+		</m:content>
+		<m:beginButton/>
+		<m:buttons/>
+		<m:customHeader/>
+		<m:endButton/>
+		<m:subHeader/>
+	</m:Dialog>
+</mvc:View>
