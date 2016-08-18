@@ -2,7 +2,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 	"use strict";
 
 	return BaseController.extend("generated.app.controller.d_kostenstelle", {
-
+		
 		onInit: function() {
 			this._oDialog = this.getView().getContent()[0];
 			
@@ -17,7 +17,15 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 		onExit: function() {
 			this._oDialog.destroy();
 		},
-		_onSelectionChangeSapmDialog0contentsapmList1464849416547: function() {
+		_onSelectionChangeSapmDialog0contentsapmList1464849416547: function(oEvt) {
+			
+			var oList = oEvt.getSource();
+			
+			var aContexts = oList.getSelectedContexts(true);
+			
+			//this.getView().byId("ipt_senderkostenstelle").getProperty('value');
+			window.zahl = 6.
+			
 			this.getView().getContent()[0].close();
 		},
 		_onPressSapmDialog0contentsapmButton1464849746658: function() {

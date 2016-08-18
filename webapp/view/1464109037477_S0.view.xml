@@ -12,16 +12,14 @@
 				<unified:specialDates />
 			</unified:CalendarDateInterval>
 
-			<form:SimpleForm
-				minWidth="-1" maxContainerCols="2" layout="ResponsiveGridLayout"
-				editable="true" visible="true">
+			<form:SimpleForm minWidth="-1" maxContainerCols="2"
+				layout="ResponsiveGridLayout" editable="true" visible="true">
 				<form:content>
-					<m:Label
-						id="lbl_dauer" text="Dauer" design="Standard" width="auto" required="false"
-						textAlign="Begin" textDirection="Inherit" />
-					<m:Input
-						id="ipt_dauer" type="Text" showValueHelp="false" enabled="true" visible="true"
-						width="auto" valueHelpOnly="false" maxLength="0" value="{/d/Stunden}" />
+					<m:Label id="lbl_dauer" text="Dauer" design="Standard"
+						width="auto" required="false" textAlign="Begin" textDirection="Inherit" />
+					<m:Input id="ipt_dauer" type="Text" showValueHelp="false"
+						enabled="true" visible="true" width="auto" valueHelpOnly="false"
+						maxLength="0" value="{/d/Stunden}" />
 
 					<!-- Senderkostenstelle -->
 					<m:Label id="lbl_senderkostenstelle" text="Senderkostenstelle"
@@ -29,27 +27,29 @@
 						textDirection="Inherit" />
 					<m:Input id="ipt_senderkostenstelle" type="Text"
 						showValueHelp="true" enabled="true" visible="true" width="auto"
-						valueHelpOnly="false" maxLength="0" value="{/d/Kostenstelle}" 
+						valueHelpOnly="false" maxLength="0" value="{/d/Kostenstelle}"
 						valueHelpRequest="_onValueHelpRequest_kostenstelle" />
+					<m:Text id="txt_senderkostenstelle" text="dummy Text" width="auto"
+						maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" />
 
-					<m:Label
-						id="lbl_auftragsnummer" text="Auftragsnummer" design="Standard" width="auto" required="false"
-						textAlign="Begin" textDirection="Inherit" />
-					<m:Input
-						id="ipt_auftragsnummer" value="{/d/Eauftrnr}" type="Text" showValueHelp="true" enabled="true"
-						visible="true" width="auto" valueHelpOnly="false" maxLength="0" />
-					<m:Text
-						id="txt_auftrasnummer" text="Urlaub" width="auto" maxLines="1" wrapping="false"
-						textAlign="Begin" textDirection="Inherit" />
-					<m:Label
-						id="lbl_leistungsart" text="Leistungsart" design="Standard" width="auto" required="false"
-						textAlign="Begin" textDirection="Inherit" />
-					<m:Input
-						id="ipt_leistungsart" type="Text" showValueHelp="true" enabled="true" visible="true" width="auto"
-						valueHelpOnly="false" maxLength="0" value="{/d/Lsart}" />
-					<m:Text
-						id="txt_leistungsart" text="Leistung" width="auto" maxLines="1" wrapping="false"
-						textAlign="Begin" textDirection="Inherit" />
+					<!-- Auftragsnummer -->
+					<m:Label id="lbl_auftragsnummer" text="Auftragsnummer"
+						design="Standard" width="auto" required="false" textAlign="Begin"
+						textDirection="Inherit" />
+					<m:Input id="ipt_auftragsnummer" value="{/d/Eauftrnr}"
+						type="Text" showValueHelp="true" enabled="true" visible="true"
+						width="auto" valueHelpOnly="false" maxLength="0" />
+					<m:Text id="txt_auftrasnummer" text="Urlaub" width="auto"
+						maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" />
+
+					<!-- Leistungsart -->
+					<m:Label id="lbl_leistungsart" text="Leistungsart" design="Standard"
+						width="auto" required="false" textAlign="Begin" textDirection="Inherit" />
+					<m:Input id="ipt_leistungsart" type="Text" showValueHelp="true"
+						enabled="true" visible="true" width="auto" valueHelpOnly="false"
+						maxLength="0" value="{/d/Lsart}" />
+					<m:Text id="txt_leistungsart" text="Leistung" width="auto"
+						maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" />
 					<m:Label
 						id="sap_Responsive_Page_0-content-sap_ui_layout_form_SimpleForm-1464109506773-content-sap_m_Label-1464109591287"
 						text="Label" design="Standard" width="auto" required="false"

@@ -1,4 +1,7 @@
-sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
+sap.ui.define([
+               "sap/ui/core/Fragment",
+               "sap/ui/core/mvc/Controller",
+               "sap/ui/model/Filter"], function(Fragment, BaseController, Filter) {
 	"use strict";
 
 	return BaseController.extend("generated.app.controller.1464109037477_S0", {
@@ -17,6 +20,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 						false);
 
 				this.getView().setModel(oModel);
+				
+				oModel.loadData(
+						"/sap/opu/odata/sap/Z_CATS_API_SRV/senderkostenstelleSet()?$format=json", "",
+						false);
+
+				this.getView().setModel(oModel, "dialog_kostl");
 
 
 		},
@@ -77,6 +86,107 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 		},
 		
 		_onValueHelpRequest_kostenstelle: function(oEvent) {
+			
+		/*	var that= this;
+			
+			var oValueHelpDialog = new sap.ui.comp.valuehelpdialog.ValueHelpDialog({
+				basicSearchText: this.theTokenInput.getValue(), 
+				title: "Company",
+				supportMultiselect: false,
+				supportRanges: false,
+				supportRangesOnly: false, 
+				key: this.aKeys[0],				
+				descriptionKey: this.aKeys[1],
+				stretch: sap.ui.Device.system.phone, 
+	 
+				ok: function(oControlEvent) {
+					that.aTokens = oControlEvent.getParameter("tokens");
+					that.theTokenInput.setTokens(that.aTokens);
+	 
+					oValueHelpDialog.close();
+				},
+	 
+				cancel: function(oControlEvent) {
+					sap.m.MessageToast.show("Cancel pressed!");
+					oValueHelpDialog.close();
+				},
+	 
+				afterClose: function() {
+					oValueHelpDialog.destroy();
+				}
+			});
+			
+			
+			var oColModel = new sap.ui.model.json.JSONModel();
+			oColModel.setData({
+				cols: [
+				      	{label: "Company Code", template: "CompanyCode"},
+				        {label: "Company Name", template: "CompanyName"},
+				        {label: "City", template: "City", demandPopin : true},
+				        {label: "Currency Code", template: "CurrencyCode", demandPopin : true}
+				      ]
+			});
+			oValueHelpDialog.getTable().setModel(oColModel, "columns");
+	 
+			
+			var oRowsModel = new sap.ui.model.json.JSONModel();
+			oRowsModel.setData(this.aItems);
+			oValueHelpDialog.getTable().setModel(oRowsModel);
+			if (oValueHelpDialog.getTable().bindRows) {
+				oValueHelpDialog.getTable().bindRows("/"); 
+			}
+			if (oValueHelpDialog.getTable().bindItems) { 
+				var oTable = oValueHelpDialog.getTable();
+				
+				oTable.bindAggregation("items", "/", function(sId, oContext) { 
+					var aCols = oTable.getModel("columns").getData().cols;
+				
+					return new sap.m.ColumnListItem({
+						cells: aCols.map(function (column) {
+							var colname = column.template;
+							return new sap.m.Label({ text: "{" + colname + "}" });
+						})
+					});
+				});
+			}	
+			
+			oValueHelpDialog.setTokens(this.theTokenInput.getTokens());
+			
+			var oFilterBar = new sap.ui.comp.filterbar.FilterBar({
+				advancedMode:  true,
+				filterBarExpanded: false,
+				showGoOnFB: !sap.ui.Device.system.phone,
+				filterGroupItems: [new sap.ui.comp.filterbar.FilterGroupItem({ groupTitle: "foo", groupName: "gn1", name: "n1", label: "Company Code", control: new sap.m.Input()}),
+				                   new sap.ui.comp.filterbar.FilterGroupItem({ groupTitle: "foo", groupName: "gn1", name: "n2", label: "Company Name", control: new sap.m.Input()}),
+				                   new sap.ui.comp.filterbar.FilterGroupItem({ groupTitle: "foo", groupName: "gn1", name: "n3", label: "City", control: new sap.m.Input()}),
+				                   new sap.ui.comp.filterbar.FilterGroupItem({ groupTitle: "foo", groupName: "gn1", name: "n4", label: "Currency Code", control: new sap.m.Input()})],
+				search: function() {
+					sap.m.MessageToast.show("Search pressed '"+arguments[0].mParameters.selectionSet[0].getValue()+"''");
+				}
+			});			
+					
+			if (oFilterBar.setBasicSearch) {
+				oFilterBar.setBasicSearch(new sap.m.SearchField({
+					showSearchButton: sap.ui.Device.system.phone, 
+					placeholder: "Search",
+					search: function(event) {
+						oValueHelpDialog.getFilterBar().search();
+					} 
+				}));  
+			}
+			
+			oValueHelpDialog.setFilterBar(oFilterBar);
+			
+			if (this.theTokenInput.$().closest(".sapUiSizeCompact").length > 0) { // check if the Token field runs in Compact mode
+				oValueHelpDialog.addStyleClass("sapUiSizeCompact");
+			} else {
+				oValueHelpDialog.addStyleClass("sapUiSizeCozy");			
+			}
+			
+			oValueHelpDialog.open();
+			oValueHelpDialog.update(); */
+			
+			/* #######
 			var dialogName = "d_kostenstelle";
 			this.dialogs = this.dialogs || {};
 			var dialog = this.dialogs[dialogName];
@@ -94,15 +204,54 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(BaseController) {
 				this.dialogs[dialogName] = dialog;
 			}
 			dialog.open();
+			
 			if (view) {
-				dialog.attachAfterOpen(function() {
-					dialog.rerender();
+				dialog.attachBeforeClose(function() {
+					//dialog.rerender();
+					//this.getView().byId('ipt_senderkostenstelle').setText('test');
+					
 				});
 			} else {
 				view = dialog.getParent();
 			}
+			
+			this.getView().byId('ipt_senderkostenstelle').setText('test');
 			//view.setModel(model);
-			//view.bindElement(path, {});
+			//view.bindElement(path, {}); 
+			
+			#######*/
+			
+			var sInputValue = oEvent.getSource().getValue();
+
+			this.inputId = oEvent.getSource().getId();
+			// create value help dialog
+			if (!this._valueHelpDialog) {
+				this._valueHelpDialog = sap.ui.xmlfragment(
+					"generated.app.view.Dialog",
+					this
+				);
+				this.getView().addDependent(this._valueHelpDialog);
+			}
+
+			// create a filter for the binding
+			/*
+			this._valueHelpDialog.getBinding("items").filter([new Filter(
+				"Name",
+				sap.ui.model.FilterOperator.Contains, sInputValue
+			)]);
+			*/
+
+			// open value help dialog filtered by the input value
+			this._valueHelpDialog.open(sInputValue);
+		},
+		
+		_handleValueHelpClose : function (evt) {
+			var oSelectedItem = evt.getParameter("selectedItem");
+			if (oSelectedItem) {
+				var productInput = this.getView().byId(this.inputId);
+				productInput.setValue(oSelectedItem.getTitle());
+			}
+			evt.getSource().getBinding("items").filter([]);
 		}
 	});
 }, /* bExport= */ true);
