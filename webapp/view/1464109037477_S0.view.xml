@@ -29,7 +29,7 @@
 						showValueHelp="true" enabled="true" visible="true" width="auto"
 						valueHelpOnly="false" maxLength="0" value="{/d/Kostenstelle}"
 						valueHelpRequest="_onValueHelpRequest_kostenstelle" />
-					<m:Text id="txt_senderkostenstelle" text="dummy Text" width="auto"
+					<m:Text id="txt_senderkostenstelle" text="" width="auto"
 						maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" />
 
 					<!-- Auftragsnummer -->

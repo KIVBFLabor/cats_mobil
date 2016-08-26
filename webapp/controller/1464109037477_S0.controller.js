@@ -250,6 +250,8 @@ sap.ui.define([
 			if (oSelectedItem) {
 				var productInput = this.getView().byId(this.inputId);
 				productInput.setValue(oSelectedItem.getTitle());
+				this.getView().byId("txt_senderkostenstelle").setText(oSelectedItem.getDescription())
+				
 			}
 			evt.getSource().getBinding("items").filter([]);
 		}
