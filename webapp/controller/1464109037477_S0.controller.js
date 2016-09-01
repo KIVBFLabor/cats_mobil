@@ -245,6 +245,15 @@ sap.ui.define([
 			this._valueHelpDialog.open(sInputValue);
 		},
 		
+		_handleValueHelpSearch : function (evt) {
+			var sValue = evt.getParameter("value");
+			var oFilter = new Filter(
+				"MCTXT",
+				sap.ui.model.FilterOperator.Contains, sValue
+			);
+			evt.getSource().getBinding("items").filter([oFilter]);
+		},
+		
 		_handleValueHelpClose : function (evt) {
 			var oSelectedItem = evt.getParameter("selectedItem");
 			if (oSelectedItem) {
